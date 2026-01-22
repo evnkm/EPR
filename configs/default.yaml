@@ -1,0 +1,68 @@
+# Default configuration for EPR experiments
+# Compositional Energy-Based Models for ARC-AGI
+
+# Data configuration
+data:
+  arc_dir: "data/arc"
+  training_split: "training"
+  evaluation_split: "evaluation"
+  max_grid_size: 30
+  max_colors: 10
+
+# Energy function configuration
+energy:
+  mode: "soft"  # "soft" or "exact"
+  temperature: 1.0
+  mismatch_penalty: 10.0
+
+  # Rotation energy
+  rotation:
+    enabled: true
+    search_angles: [0, 90, 180, 270]
+
+  # Reflection energy
+  reflection:
+    enabled: true
+    types: ["horizontal", "vertical", "diagonal", "antidiagonal"]
+
+  # Color map energy
+  color_map:
+    enabled: true
+    infer_map: true
+
+  # Translation energy
+  translation:
+    enabled: true
+    max_shift: 10
+    fill_value: 0
+
+# Composition configuration
+composition:
+  mode: "additive"  # "additive", "product", "min"
+  normalize: false
+  weights: null  # null for uniform weights
+
+# Sampling configuration (for future GWG implementation)
+sampling:
+  method: "gwg"  # "gwg" (Gibbs-with-Gradients), "gibbs", "random"
+  n_steps: 100
+  temperature: 1.0
+  proposal_temp: 0.5
+
+# Evaluation configuration
+evaluation:
+  n_negative_samples: 5
+  perturbation_levels: [1, 3, 5, 10]
+
+# Experiment configuration
+experiment:
+  seed: 42
+  device: "cpu"  # "cpu" or "cuda"
+  log_dir: "logs"
+  checkpoint_dir: "checkpoints"
+
+# Logging
+logging:
+  level: "INFO"
+  use_wandb: false
+  wandb_project: "epr-arc"
