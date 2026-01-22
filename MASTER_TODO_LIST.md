@@ -6,56 +6,56 @@
 ---
 
 ## Phase 1: Environment Setup (Day 1-2)
-- [ ] **1.1** Set up Python environment with PyTorch, JAX dependencies
+- [x] **1.1** Set up Python environment with PyTorch, JAX dependencies
 - [ ] **1.2** Fork/clone GFN_to_ARC repository (github.com/GIST-DSLab/GFN_to_ARC)
 - [ ] **1.3** Download ARC-AGI dataset (training + evaluation sets)
 - [ ] **1.4** Set up experiment tracking (Weights & Biases or TensorBoard)
-- [ ] **1.5** Create project directory structure
-- [ ] **1.6** Verify ARC environment can load and visualize tasks
+- [x] **1.5** Create project directory structure
+- [x] **1.6** Verify ARC environment can load and visualize tasks
 
 ---
 
 ## Phase 2: Core Infrastructure (Day 2-3)
-- [ ] **2.1** Implement ARC grid representation utilities
-  - [ ] Grid loading/parsing
-  - [ ] Grid visualization (matplotlib)
-  - [ ] Grid transformations (numpy operations)
-- [ ] **2.2** Implement transformation primitive library
-  - [ ] Rotation (90°, 180°, 270°)
-  - [ ] Reflection (horizontal, vertical, diagonal)
-  - [ ] Color mapping/remapping
-  - [ ] Translation
-  - [ ] Crop/tile operations
+- [x] **2.1** Implement ARC grid representation utilities
+  - [x] Grid loading/parsing
+  - [x] Grid visualization (matplotlib)
+  - [x] Grid transformations (numpy operations)
+- [x] **2.2** Implement transformation primitive library
+  - [x] Rotation (90°, 180°, 270°)
+  - [x] Reflection (horizontal, vertical, diagonal)
+  - [x] Color mapping/remapping
+  - [x] Translation
+  - [x] Crop/tile operations
 - [ ] **2.3** Create task curation module
-  - [ ] Filter tasks by transformation type
+  - [x] Filter tasks by transformation type
   - [ ] Select 10-20 curated single-step tasks
   - [ ] Select 5-10 curated multi-step tasks
-- [ ] **2.4** Implement evaluation metrics
-  - [ ] Exact match accuracy
-  - [ ] Per-cell accuracy
-  - [ ] Transformation identification accuracy
+- [x] **2.4** Implement evaluation metrics
+  - [x] Exact match accuracy
+  - [x] Per-cell accuracy
+  - [x] Transformation identification accuracy
 
 ---
 
 ## Phase 3: Subproblem 1 - Compositional Energy Functions (Day 3-7)
 
 ### 3A: Single-Transformation Energy Functions
-- [ ] **3A.1** Design energy function interface: `E(output | transformation, input) -> scalar`
-- [ ] **3A.2** Implement rotation energy function
-  - [ ] `E_rot(out | in) = ||rotate(in) - out||² + regularization`
-- [ ] **3A.3** Implement reflection energy function
-  - [ ] `E_ref(out | in) = ||reflect(in) - out||²`
-- [ ] **3A.4** Implement color mapping energy function
-  - [ ] `E_color(out | in) = cross_entropy(color_map(in), out)`
-- [ ] **3A.5** Implement translation energy function
+- [x] **3A.1** Design energy function interface: `E(output | transformation, input) -> scalar`
+- [x] **3A.2** Implement rotation energy function
+  - [x] `E_rot(out | in) = ||rotate(in) - out||² + regularization`
+- [x] **3A.3** Implement reflection energy function
+  - [x] `E_ref(out | in) = ||reflect(in) - out||²`
+- [x] **3A.4** Implement color mapping energy function
+  - [x] `E_color(out | in) = cross_entropy(color_map(in), out)`
+- [x] **3A.5** Implement translation energy function
 - [ ] **3A.6** Implement crop/tile energy function
 - [ ] **3A.7** Test single-transformation discrimination on 10 curated tasks
-  - [ ] Verify low energy for correct transformations
-  - [ ] Verify high energy for incorrect transformations
+  - [x] Verify low energy for correct transformations (demo script)
+  - [x] Verify high energy for incorrect transformations (demo script)
 
 ### 3B: Energy Composition
-- [ ] **3B.1** Implement additive energy composition: `E_total = Σ E_i`
-- [ ] **3B.2** Implement product-of-experts composition: `p(out) ∝ exp(-Σ E_i)`
+- [x] **3B.1** Implement additive energy composition: `E_total = Σ E_i`
+- [x] **3B.2** Implement product-of-experts composition: `p(out) ∝ exp(-Σ E_i)`
 - [ ] **3B.3** Implement Gibbs-with-Gradients (GWG) sampler for discrete grids
   - [ ] Gradient-informed proposal distribution
   - [ ] Categorical variable handling (10 ARC colors)
